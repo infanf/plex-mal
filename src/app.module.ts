@@ -1,5 +1,6 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
+import { LoggerMiddleware } from './logger.middleware';
 import { ScrobbleController } from './scrobble/scrobble.controller';
 import { ScrobbleService } from './scrobble/scrobble.service';
 
@@ -7,4 +8,8 @@ import { ScrobbleService } from './scrobble/scrobble.service';
   controllers: [ScrobbleController],
   providers: [ScrobbleService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('/');
+  }
+}
