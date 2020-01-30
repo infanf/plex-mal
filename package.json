@@ -64,8 +64,18 @@
   },
   "dependencies": {
     "@elunic/logger": "^2.3.1",
+    "@nestjs/common": "^6.11.4",
+    "@nestjs/core": "^6.11.4",
+    "@nestjs/platform-express": "^6.11.4",
+    "@nestjs/testing": "^6.11.4",
+    "@nestjs/typeorm": "^6.2.0",
     "config": "^3.2.4",
     "lodash": "^4.17.15",
-    "source-map-support": "^0.5.16"
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.4",
+    "source-map-support": "^0.5.16",
+    "typeorm": "^0.2.22",
+    "typeorm-naming-strategies": "^1.1.0"
   }
 }
