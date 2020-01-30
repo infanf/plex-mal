@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, Put } from '@nestjs/common';
+import { Controller, Param, Post, UploadedFile } from '@nestjs/common';
 
 import { ScrobbleService } from './scrobble.service';
 
@@ -6,11 +6,7 @@ import { ScrobbleService } from './scrobble.service';
 export class ScrobbleController {
   constructor(private readonly scrobbleService: ScrobbleService) {}
   @Post(':authtoken')
-  async scrobble(@Param('authtoken') token: string, @Body() data: unknown) {
-    this.scrobbleService.scrobble(data);
-  }
-  @Put(':authtoken')
-  async scrobblePut(@Param('authtoken') token: string, @Body() data: unknown) {
+  async scrobble(@Param('authtoken') token: string, @UploadedFile() data: unknown) {
     this.scrobbleService.scrobble(data);
   }
 }
